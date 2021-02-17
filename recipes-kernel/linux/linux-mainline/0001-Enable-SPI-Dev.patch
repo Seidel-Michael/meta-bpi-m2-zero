@@ -1,0 +1,30 @@
+From 21564ff2949a2f93d288091ee1c1d7011ba28d5d Mon Sep 17 00:00:00 2001
+From: seidel-michael <github@seidel-michael.de>
+Date: Wed, 17 Feb 2021 21:58:51 +0100
+Subject: [PATCH] Enable SPI Dev
+
+---
+ arch/arm/boot/dts/sun8i-h2-plus-bananapi-m2-zero.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm/boot/dts/sun8i-h2-plus-bananapi-m2-zero.dts b/arch/arm/boot/dts/sun8i-h2-plus-bananapi-m2-zero.dts
+index 4c6704e4c..8a89fb85a 100644
+--- a/arch/arm/boot/dts/sun8i-h2-plus-bananapi-m2-zero.dts
++++ b/arch/arm/boot/dts/sun8i-h2-plus-bananapi-m2-zero.dts
+@@ -151,3 +151,15 @@
+ 	 */
+ 	status = "okay";
+ };
++
++&spi0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++	spidev@0 {
++		compatible = "spidev";
++		status = "okay";
++		reg = <0>;
++		spi-max-frequency = <1000000>;
++	};
++};
+\ No newline at end of file
